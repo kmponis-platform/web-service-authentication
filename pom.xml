@@ -34,9 +34,13 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 		</dependency>
-		<dependency> 
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
 		<!-- Swagger Stuff -->
@@ -62,13 +66,12 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
-		
-		<!-- Copy project on kmponis-platform and change com.sopra.steria with com.platform -->
+
+		<!-- Copy project on kmponis-platform and change com.sopra.steria with 
+			com.platform -->
 		<!-- Calculating performance times -->
-		<!-- <dependency>
-			<groupId>com.sopra.steria</groupId>
-			<artifactId>performance-indicator</artifactId>
-		</dependency> -->
+		<!-- <dependency> <groupId>com.sopra.steria</groupId> <artifactId>performance-indicator</artifactId> 
+			</dependency> -->
 
 		<!-- ***************** -->
 		<!-- TEST Dependencies -->

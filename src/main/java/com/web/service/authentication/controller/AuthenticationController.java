@@ -27,4 +27,10 @@ public class AuthenticationController {
     return authenticationService.authentication(username, password);
   }
 
+  @ApiOperation(value = "Return the given String", response = String.class)
+  @GetMapping(value = "/test")
+  public String test(@RequestParam(value = "a") String a) {
+    return "Test endpoint with parameter: " + a;
+  }
+
 }
