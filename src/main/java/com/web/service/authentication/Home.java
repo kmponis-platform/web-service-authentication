@@ -33,9 +33,9 @@ import org.springframework.context.annotation.Configuration;
  * Home.java - Use: bellow class
  * ApplicationInitializer.java - Not Use: class
  * - Access: 
- * localhost:8080
+ * localhost:8081
  * - Swagger:
- * localhost:8080/swagger-ui.html
+ * localhost:8081/swagger-ui.html
  */
 @Configuration
 @EnableAutoConfiguration

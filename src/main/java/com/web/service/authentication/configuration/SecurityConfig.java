@@ -18,10 +18,20 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @PropertySource("classpath:security.properties")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-  private static final String USER_ROLE = "USER";
-
   @Value("${cross.origin.domain}")
   private String crossOriginDomain;
+
+  @Value("${admin.role}")
+  private String adminRole;
+
+  @Value("${admin.role.username}")
+  private String adminRoleUsername;
+
+  @Value("${admin.role.password}")
+  private String adminRolePassword;
+
+  @Value("${user.role}")
+  private String userRole;
 
   @Value("${user.role.username}")
   private String userRoleUsername;
@@ -33,19 +43,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
    * Assign Username and Password to User-Role. Not needed until 'Assign User-Role to Mappings' is
    * done
    */
+  @SuppressWarnings("deprecation")
   @Override
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
     auth.inMemoryAuthentication()
         .passwordEncoder(
             org.springframework.security.crypto.password.NoOpPasswordEncoder.getInstance())
-        .withUser(userRoleUsername).password(userRolePassword).roles(USER_ROLE);
+        .withUser(adminRoleUsername).password(adminRolePassword).roles(adminRole, userRole).and()
+        .withUser(userRoleUsername).password(userRolePassword).roles(userRole);
   }
 
   /*
    * Add Cross Origin Domain
    * 
    * TODO: Assign User-Role to Mappings:
-   * .and().httpBasic().and().authorizeRequests().antMatchers("/**").hasRole(USER_ROLE)
+   * .and().httpBasic().and().authorizeRequests().antMatchers("/**").hasRole(userRole)
    * .and().csrf().disable().headers().frameOptions().disable()
    */
   @Override

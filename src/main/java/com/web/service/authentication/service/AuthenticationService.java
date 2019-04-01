@@ -12,5 +12,4 @@ public interface AuthenticationService {
    * @return Token
    */
   Token authentication(String username, String password);
-
 }
